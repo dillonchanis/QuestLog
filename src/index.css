@@ -1,0 +1,85 @@
+body {
+	width: 100%;
+	height: 100%;
+	font-size: 20px;
+  margin: 0;
+  padding: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+a {
+	color: #78D8C3;
+}
+
+nav, ul {
+	margin: 0;
+	padding: 0;
+}
+
+nav.navbar.nav-top {
+	display: block;
+	width: 100%;
+	background: #fff;
+	height: 64px;
+	line-height: 64px;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+nav.navbar.nav-top .brand {
+	font-size: 48px;
+	font-weight: 700;
+	color: #78D8C3;
+	text-decoration: none;
+	cursor: pointer;
+	margin-left: 40px;
+}
+
+nav.navbar.nav-top .avatar {
+	margin-right: 40px;
+	float: right;
+	clear: right;
+}
+
+.avatar > i {
+	font-size: 42px;
+	line-height: 64px;
+}
+
+nav.navbar.nav-top .username {
+	font-size: 16px;
+	margin-right: 14px;
+	color: rgba(0, 20, 0, 0.87);
+	float: right;
+}
+
+nav.nav-side {
+	color: #fff;
+	width: 140px;
+	min-height: 100vh;
+	height: 100%;
+	background: #3B444E;
+}
+
+nav.nav-side ul li {
+	text-align: center;
+	padding: 52px 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.30);
+	transition: all 0.3 ease;
+}
+
+nav.nav-side ul li:hover {
+	background: #2E3741;
+}
+
+nav.nav-side ul li span {
+	display: block;
+}
+
+nav.nav-side ul li.active {
+	background: #2E3741;
+}
+
+nav.nav-side a, nav.nav-side i {
+	color: #fff;
+	text-decoration: none;
+}
