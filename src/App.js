@@ -1,57 +1,72 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import TopNavigation from './components/TopNavigation';
+import Content from './components/Content';
+
 class App extends Component {
+  constructor() {
+    super();
+
+    this.showMenu = this.showMenu.bind(this);
+    this.addQuest = this.addQuest.bind(this);
+
+    //Setup Initial States
+    this.state = {
+      quests: {}
+    }
+  }
+
+  showMenu() {
+    //Grab Main Menu & Place Into Array
+    const menu = document.getElementsByClassName('main-menu');
+    const nodes = Array.from(menu[0].children);
+    if (menu[0].style.display === 'none' || menu[0].style.display === '') {
+      //Set ul.main-menu to display: block
+      menu[0].style.display = 'block';
+
+      //Set ul.main-menu li to display: block
+      nodes.map((val, i) => {
+        nodes[i].style.display = 'block';
+      });
+    }
+    else {
+      //Set ul.main-menu to display: none
+      menu[0].style.display = 'none';
+
+      //Set ul.main-menu li to display: none
+      nodes.map((val, i) => {
+        nodes[i].style.display = 'none';
+      });
+    }
+  }
+
+  addQuest(quest) {
+    //Make copy of current state
+    const quests = {...this.state.quests};
+
+    /** Add In the New Quest **/
+    //Create Timestamp
+    const timestamp = Date.now();
+    quests[`quest-${timestamp}`] = quest;
+
+    //Set the State
+    this.setState({quests});
+  }
+
   render() {
     return (
       <div>
-        {/* Top Navbar */}
         <div className="nav-wrapper">
-          <nav className="navbar nav-top">
-            <a className="brand" href="/">!</a>
-            <a className="avatar" href="/">
-              <i className="material-icons">face</i>
-            </a>
-            <span className="username">John Doe</span>
-          </nav>
+         {/* Top Navbar */}
+         <TopNavigation />
 
-          {/* Sidebar / Side Navbar */}
-          <nav className="navbar nav-side">
-            <ul>
-              <li className="active">
-                <a href="/">
-                  <span>
-                    <i className="material-icons">home</i>
-                  </span>
-                  Dashboard
-                </a>
-              </li>
-              <li>
-                <a href="/">
-                  <span>
-                    <i className="material-icons">announcement</i>
-                  </span>
-                  Quests
-                </a>
-              </li>
-              <li>
-                <a href="/">
-                  <span>
-                    <i className="material-icons">format_list_numbered</i>
-                  </span>
-                  Leaderboards
-                </a>
-              </li>
-              <li>
-                <a href="/">
-                  <span>
-                    <i className="material-icons">account_box</i>
-                  </span>
-                  Profile
-                </a>
-              </li>
-            </ul>
-          </nav>
+          {/* Content */}
+          <Content 
+            showMenu={this.showMenu} 
+            addQuest={this.addQuest}
+            allQuests={this.state.quests}
+          />
         </div>
       </div>
     );
