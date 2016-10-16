@@ -5,10 +5,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Source Sans Pro', sans-serif;
+  color: rgba(0,0,0,0.87);
 }
 
 a {
-	color: #78D8C3;
+	color: #64B5F6;
 }
 
 nav, ul {
@@ -28,7 +29,7 @@ nav.navbar.nav-top {
 nav.navbar.nav-top .brand {
 	font-size: 48px;
 	font-weight: 700;
-	color: #78D8C3;
+	color: #64B5F6;
 	text-decoration: none;
 	cursor: pointer;
 	margin-left: 40px;
@@ -82,4 +83,8 @@ nav.nav-side ul li.active {
 nav.nav-side a, nav.nav-side i {
 	color: #fff;
 	text-decoration: none;
+}
+
+nav.nav-side i {
+	color: #64B5F6;
 }
