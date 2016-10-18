@@ -9,14 +9,14 @@ class AddQuestForm extends React.Component {
 
 	createQuest(e) {
 		//Stop Event
-		e.preventDefault();
+		e.preventDefault(); 
 
 		//Get Quest Values from form
 		const quest = {
-			name: this.questName.value,
-			desc: this.questDesc.value,
-			pic: this.questPic.value,
-			difficulty: this.questDifficulty.value
+			name: e.target.questName.value,
+			desc: e.target.questDesc.value,
+			pic: e.target.questPic.value,
+			difficulty: e.target.questDifficulty.value
 		};
 
 		console.log(quest);
@@ -34,24 +34,23 @@ class AddQuestForm extends React.Component {
 					<div className="card-content">
 						<div className="card-body">
 							<form 
-								ref={(input) => this.questForm = input}
 								className="quest-form" 
 								onSubmit={this.createQuest}
 							>
 								<input 
-									ref={(input) => this.questName = input}
 									type="text" 
+									name="questName"
 									placeholder="Quest Name" 
 								/>
 								
 								<textarea 
-									ref={(input) => this.questDesc = input}
+									name="questDesc"
 									placeholder="Quest Description" 
 								/>
 								
 								<input 
-									ref={(input) => this.questPic = input}
 									type="text" 
+									name="questPic"
 									placeholder="Quest Picture URL" 
 								/>
 								
@@ -59,21 +58,21 @@ class AddQuestForm extends React.Component {
 									<input id="DiffEasy" 
 										type="radio" 
 										value="easy"
-										ref={(input) => this.questDifficulty = input} 
+										name="questDifficulty"
 									/>
 									<label htmlFor="DiffEasy">Easy</label>
 
 									<input id="DiffMed" 
 										type="radio" 
 										value="medium"
-										ref={(input) => this.questDifficulty = input} 
+										name="questDifficulty"
 									/>
 									<label htmlFor="DiffMed">Medium</label>
 
 									<input id="DiffHard" 
 										type="radio" 
 										value="hard"
-										ref={(input) => this.questDifficulty = input} 
+										name="questDifficulty"
 									/>
 									<label htmlFor="DiffHard">Hard</label>
 								</div>
