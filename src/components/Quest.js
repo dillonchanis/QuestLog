@@ -8,7 +8,7 @@ class Quest extends React.Component {
 			<div className="card">
 				<div className="card-content">
 					<span className="card-title">{quest.name}</span>
-					<img src={quest.pic} />
+					<img src={quest.pic} alt={quest.name} />
 					<p>{quest.desc}</p>
 					<p>Difficulty: {quest.difficulty}</p>
 				</div>

@@ -25,15 +25,15 @@ class AddQuestForm extends React.Component {
 		this.props.addQuest(quest);
 
 		//Reset the Form
-		this.questForm.reset();
+		e.target.reset();
 	}
 
 	render() {
 		return(
-				<div className="card">
-					<div className="card-content">
-						<div className="card-body">
-							<form 
+				<div className="panel panel-default">
+				  <div className="panel-heading">Quest Creation</div>
+				  <div className="panel-body">
+				  	<form 
 								className="quest-form" 
 								onSubmit={this.createQuest}
 							>
@@ -53,34 +53,16 @@ class AddQuestForm extends React.Component {
 									name="questPic"
 									placeholder="Quest Picture URL" 
 								/>
-								
-								<div className="radio-group">
-									<input id="DiffEasy" 
-										type="radio" 
-										value="easy"
-										name="questDifficulty"
-									/>
-									<label htmlFor="DiffEasy">Easy</label>
 
-									<input id="DiffMed" 
-										type="radio" 
-										value="medium"
-										name="questDifficulty"
-									/>
-									<label htmlFor="DiffMed">Medium</label>
-
-									<input id="DiffHard" 
-										type="radio" 
-										value="hard"
-										name="questDifficulty"
-									/>
-									<label htmlFor="DiffHard">Hard</label>
-								</div>
+								<select className="form-control" name="questDifficulty">
+								  <option value="easy">Easy</option>
+								  <option value="medium">Medium</option>
+								  <option value="hard">Hard</option>
+								</select>
 
 								<button className="btn-primary" type="submit">Submit</button>
 							</form>
-						</div>
-					</div>
+				  </div>
 				</div>
 		);
 	}

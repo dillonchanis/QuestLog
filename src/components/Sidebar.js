@@ -3,49 +3,26 @@ import React from 'react';
 class Sidebar extends React.Component {
 	render() {
 		return (
-			<nav className="nav-side">
-	      <ul className="mobile-menu">
-	        <li onClick={this.props.showMenu}>
-	          <a role="button">
-	            Menu
-	          </a>
-	        </li>
-	      </ul>
-	      <ul className="main-menu">
-	        <li className="active">
-	          <a href="/">
-	            <span>
-	              <i className="material-icons">home</i>
-	            </span>
-	            Dashboard
-	          </a>
-	        </li>
-	        <li>
-	          <a href="/">
-	            <span>
-	              <i className="material-icons">announcement</i>
-	            </span>
-	            Quests
-	          </a>
-	        </li>
-	        <li>
-	          <a href="/">
-	            <span>
-	              <i className="material-icons">format_list_numbered</i>
-	            </span>
-	            Leaderboards
-	          </a>
-	        </li>
-	        <li>
-	          <a href="/">
-	            <span>
-	              <i className="material-icons">account_box</i>
-	            </span>
-	            Profile
-	          </a>
-	        </li>
-	      </ul>
-	    </nav>
+			<div className="col-sm-3 col-md-2 sidebar">
+        <ul className="nav nav-sidebar">
+          <li className="active"><a href="#">Overview <span className="sr-only">(current)</span></a></li>
+          <li><a href="#">Reports</a></li>
+          <li><a href="#">Analytics</a></li>
+          <li><a href="#">Export</a></li>
+        </ul>
+        <ul className="nav nav-sidebar">
+          <li><a href="">Nav item</a></li>
+          <li><a href="">Nav item again</a></li>
+          <li><a href="">One more nav</a></li>
+          <li><a href="">Another nav item</a></li>
+          <li><a href="">More navigation</a></li>
+        </ul>
+        <ul className="nav nav-sidebar">
+          <li><a href="">Nav item again</a></li>
+          <li><a href="">One more nav</a></li>
+          <li><a href="">Another nav item</a></li>
+        </ul>
+      </div>
 		);
 	}
 }
