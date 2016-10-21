@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Match } from 'react-router';
+
 import './App.css';
 
 import TopNavigation from './components/TopNavigation';
+import Sidebar from './components/Sidebar';
 import Content from './components/Content';
+import AllQuests from './components/AllQuests';
 
 class App extends Component {
   constructor() {
     super();
 
-    this.showMenu = this.showMenu.bind(this);
     this.addQuest = this.addQuest.bind(this);
 
     //Setup Initial States
@@ -17,30 +20,28 @@ class App extends Component {
     }
   }
 
-  showMenu() {
-    //Grab Main Menu & Place Into Array
-    const menu = document.getElementsByClassName('main-menu');
-    const nodes = Array.from(menu[0].children);
-    if (menu[0].style.display === 'none' || menu[0].style.display === '') {
-      //Set ul.main-menu to display: block
-      menu[0].style.display = 'block';
+  componentWillMount() {
+    //Check Local Storage
+    const localStorageItem = localStorage.getItem('quest-active');
 
-      //Set ul.main-menu li to display: block
-      nodes.map((val, i) => {
-        nodes[i].style.display = 'block';
-      });
-    }
-    else {
-      //Set ul.main-menu to display: none
-      menu[0].style.display = 'none';
-
-      //Set ul.main-menu li to display: none
-      nodes.map((val, i) => {
-        nodes[i].style.display = 'none';
+    //If there are quests -> set state
+    if(localStorageItem) {
+      this.setState({
+        quests: JSON.parse(localStorageItem)
       });
     }
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    //On Quest Creation, add to local storage for some persistance
+    //Want to be able to see quest on page change
+    localStorage.setItem('quest-active', JSON.stringify(nextState.quests));
+  }
+
+  /**
+   * Gets quest from AddQuestForm
+   * Sets it in State
+   */
   addQuest(quest) {
     //Make copy of current state
     const quests = {...this.state.quests};
@@ -61,12 +62,24 @@ class App extends Component {
          {/* Top Navbar */}
          <TopNavigation />
 
-          {/* Content */}
-          <Content 
-            showMenu={this.showMenu} 
-            addQuest={this.addQuest}
-            allQuests={this.state.quests}
-          />
+         
+
+          <div className="container-fluid">
+            <div className="row">
+              {/* Sidebar */}
+              <Sidebar />
+
+              {/* Content */}
+              <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <BrowserRouter>
+                  <div>
+                    <Match exactly pattern="/" render={() => <Content addQuest={this.addQuest} />} />
+                    <Match exactly pattern="/quests" render={() => <AllQuests allQuests={this.state.quests} />}/>
+                  </div>
+                </BrowserRouter>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

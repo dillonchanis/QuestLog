@@ -1,5 +1,9 @@
 import React from 'react';
 
+
+/**
+ * Quest Form.
+ */
 class AddQuestForm extends React.Component {
 	constructor() {
 		super();
@@ -7,6 +11,10 @@ class AddQuestForm extends React.Component {
 		this.createQuest = this.createQuest.bind(this);
 	}
 
+	/**
+	 * Creates quest based on form data.
+	 * @param {object} event - event object from form submission.
+	 */
 	createQuest(e) {
 		//Stop Event
 		e.preventDefault(); 
@@ -21,7 +29,7 @@ class AddQuestForm extends React.Component {
 
 		console.log(quest);
 
-		//Pass to App's addQuest method
+		//Pass to App's (parent component) addQuest method
 		this.props.addQuest(quest);
 
 		//Reset the Form
@@ -54,7 +62,8 @@ class AddQuestForm extends React.Component {
 									placeholder="Quest Picture URL" 
 								/>
 
-								<select className="form-control" name="questDifficulty">
+								<label htmlFor="difficulty">Difficulty:</label>
+								<select id="difficulty" className="form-control" name="questDifficulty">
 								  <option value="easy">Easy</option>
 								  <option value="medium">Medium</option>
 								  <option value="hard">Hard</option>

@@ -1,8 +1,12 @@
 import React from 'react';
 
+/**
+ * Renders a Quest from AddQuestForm
+ */
 class Quest extends React.Component {
 
 	render() {
+		//Get quest from props
 		const quest = this.props.quest;
 		return(
 			<div className="card">

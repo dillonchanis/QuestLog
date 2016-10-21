@@ -1,12 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+
 import App from './App';
+import AllQuests from './components/AllQuests';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
 import './index.css';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+const Root = () => {
+	return (
+		<App />
+	)
+}
+
+render(<Root/>, document.querySelector('#root'));
