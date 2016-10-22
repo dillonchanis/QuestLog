@@ -5,6 +5,10 @@ body {
   font-size: 18px;
 }
 
+.nav > li > a {
+	transition: all 0.3s ease;
+}
+
 .nav > li > a:hover {
   color: #2E3741; 
 }
@@ -175,6 +179,7 @@ body {
 .quest-pic {
 	display: block;
 	width: 250px;
+	height: 200px;
 }
 
 

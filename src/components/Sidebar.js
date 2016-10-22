@@ -7,7 +7,7 @@ class Sidebar extends React.Component {
         <ul className="nav nav-sidebar">
           <li className="active"><a href="/">Dashboard <span className="sr-only">(current)</span></a></li>
           <li><a href="/quests">Quests</a></li>
-          <li><a href="#">Profile</a></li>
+          <li><a href="/achievements">Achievements</a></li>
         </ul>
         <ul className="nav nav-sidebar">
           <li><a href="">Nav item</a></li>

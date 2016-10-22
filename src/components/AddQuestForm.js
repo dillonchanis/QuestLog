@@ -27,8 +27,6 @@ class AddQuestForm extends React.Component {
 			difficulty: e.target.questDifficulty.value
 		};
 
-		console.log(quest);
-
 		//Pass to App's (parent component) addQuest method
 		this.props.addQuest(quest);
 
