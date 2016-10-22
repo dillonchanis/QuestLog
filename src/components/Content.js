@@ -14,7 +14,7 @@ class Content extends React.Component {
 	renderMyQuests() {
 		if(this.props.myQuests) {
 			return(
-				Object.keys(this.props.myQuests).map(key => <Quest key={key} index={key} quest={this.props.myQuests[key]} />)
+				Object.keys(this.props.myQuests).map(key => <Quest key={key} index={key} quest={this.props.myQuests[key]} completeQuest={this.props.completeQuest} />)
 			)
 		} else {
 			return(
