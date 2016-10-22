@@ -9,14 +9,16 @@ class Quest extends React.Component {
 		//Get quest from props
 		const quest = this.props.quest;
 		return(
-			<div className="card">
-				<div className="card-content">
-					<span className="card-title">{quest.name}</span>
-					<img src={quest.pic} alt={quest.name} />
-					<p>{quest.desc}</p>
-					<p>Difficulty: {quest.difficulty}</p>
+				<div className="col-md-6">
+					<div className="panel panel-default">
+					  <div className="panel-heading">{quest.name}</div>
+					  <div className="panel-body">
+								<img className="quest-pic" src={quest.pic} alt={quest.name} />
+								<p>{quest.desc}</p>
+								<p>Difficulty: {quest.difficulty}</p>
+						</div>
+					</div>
 				</div>
-			</div>
 		);
 	}
 

@@ -8,11 +8,14 @@ import Sidebar from './components/Sidebar';
 import Content from './components/Content';
 import AllQuests from './components/AllQuests';
 
+import sampleQuests from './sample-quests';
+
 class App extends Component {
   constructor() {
     super();
 
     this.addQuest = this.addQuest.bind(this);
+    this.getSampleQuests = this.getSampleQuests.bind(this);
 
     //Setup Initial States
     this.state = {
@@ -55,6 +58,16 @@ class App extends Component {
     this.setState({quests});
   }
 
+  /**
+   * Gets the Sample Quests our 
+   * premade JS file
+   */
+  getSampleQuests() {
+    this.setState({
+      quests: sampleQuests
+    });
+  }
+
   render() {
     return (
       <div>
@@ -73,7 +86,7 @@ class App extends Component {
               <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 <BrowserRouter>
                   <div>
-                    <Match exactly pattern="/" render={() => <Content addQuest={this.addQuest} />} />
+                    <Match exactly pattern="/" render={() => <Content addQuest={this.addQuest} getSampleQuests={this.getSampleQuests} />} />
                     <Match exactly pattern="/quests" render={() => <AllQuests allQuests={this.state.quests} />}/>
                   </div>
                 </BrowserRouter>

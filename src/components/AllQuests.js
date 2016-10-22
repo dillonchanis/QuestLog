@@ -7,10 +7,10 @@ class AllQuests extends React.Component {
 	render() {
 		return(
 			<div>
-				<h2>AllQuests</h2>
-				{
-		    	Object.keys(this.props.allQuests).map(key => <Quest key={key} quest={this.props.allQuests[key]} />)
-		    }
+				<h2>All Quests</h2>
+				<div className="row">
+					{Object.keys(this.props.allQuests).map(key => <Quest key={key} quest={this.props.allQuests[key]} />)}
+		    </div>
 			</div>
 		);
 	}		
