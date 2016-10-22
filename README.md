@@ -6,5 +6,6 @@ Quest Log is a prototype for an idea of creating a task or goal list that reinfo
 
 - [ ] Write Tests
 - [ ] Create achievement system
-- [ ] Have users able to accept a quest
+- [X] Have users able to accept a quest
+- [X] Have users complete a quest
 - [ ] Flesh out UI
