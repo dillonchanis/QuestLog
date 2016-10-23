@@ -7,7 +7,7 @@ import TopNavigation from './components/TopNavigation';
 import Sidebar from './components/Sidebar';
 import Content from './components/Content';
 import AllQuests from './components/AllQuests';
-import Achievements from './components/Achievements';
+import AchievementList from './components/AchievementList';
 
 import sampleQuests from './sample-quests';
 
@@ -121,6 +121,10 @@ class App extends Component {
     });
   }
 
+  setCurrentLocation(location) {
+    console.log(location);
+  }
+
   render() {
     return (
       <div>
@@ -136,9 +140,31 @@ class App extends Component {
               <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 <BrowserRouter>
                   <div>
-                    <Match exactly pattern="/" render={() => <Content addQuest={this.addQuest} getSampleQuests={this.getSampleQuests} myQuests={this.state.myQuests} completeQuest={this.completeQuest} />} />
-                    <Match exactly pattern="/quests" render={() => <AllQuests acceptQuest={this.acceptQuest} allQuests={this.state.quests} />}/>
-                    <Match exactly pattern="/achievements" render={() => <Achievements />} />
+                    <Match exactly pattern="/" 
+                      render={() => 
+                        <Content 
+                          addQuest={this.addQuest} 
+                          getSampleQuests={this.getSampleQuests} 
+                          myQuests={this.state.myQuests} 
+                          completeQuest={this.completeQuest} 
+                        />
+                      } 
+                    />
+                    <Match exactly pattern="/quests" 
+                      render={() => 
+                        <AllQuests 
+                          acceptQuest={this.acceptQuest} 
+                          allQuests={this.state.quests} 
+                        />
+                      }
+                    />
+                    <Match exactly pattern="/achievements" 
+                      render={() => 
+                        <AchievementList 
+                          completed={this.state.completed} 
+                        />
+                      } 
+                    />
                   </div>
                 </BrowserRouter>
               </div>

@@ -184,5 +184,17 @@ body {
 
 
 /*****************************
+***** ACHIEVMENT STYLES ******
+*****************************/
+
+
+.panel-default.panel-incomplete  .panel-heading {
+	color: rgba(0,0,0,0.87);
+	background-color: #e1e1e1;
+	border-radius: none;
+}
+
+
+/*****************************
 ******* MEDIA QUERIES ********
 *****************************/

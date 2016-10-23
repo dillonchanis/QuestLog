@@ -9,6 +9,8 @@ class Content extends React.Component {
 		super();
 
 		this.renderMyQuests = this.renderMyQuests.bind(this);
+
+		const activeNav = true;
 	}
 
 	renderMyQuests() {
